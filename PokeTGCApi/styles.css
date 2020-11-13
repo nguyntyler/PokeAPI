@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #f3d7b2;
+    font-family: 'Jura', sans-serif;
+}
+
+.background {
+    height: 100vh;
+    width: 100%;
+    
+    /* background-image: url(https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/masters/forest.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    /* border: 10px solid red; */
+}
+
+.pikachu {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 400px;
+}
+
+.pikachu > img {
+    width: 400px;
+    object-fit: contain;
+    transform: translateX(15px)
+}
+
+
+
+
+
+.title {
+    z-index: 11;
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+.navigation-bar {
+    z-index: 100;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+
+    position: sticky;
+    top: 10px;
+    
+}
+
+.add-card {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    /* height: 60px; */
+    background-color: #f09a9d;
+    border-color: #bd3a3e;
+    border-style: solid;
+    transition-duration: .2s;
+    text-align: center;
+    font-size: xx-large;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+    font-family: 'Jura', sans-serif;
+}
+.add-card:focus {
+    outline: none;
+}
+.add-card:hover {
+    
+    padding: 15px;
+}
+.add-card:active {
+    padding: 10px;
+    background-color: #e7565b;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    object-fit: contain;
+    padding: 0 10%;
+    margin-top: 30px;
+
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    max-width: 75vw;
+    background-color: #d1b794ad;
+    border-radius: 10px;
+}
+
+.card-card {
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px 10px 10px;
+    margin: 20px;
+    width: 188px;
+    border: 1px solid #b0abca;
+    background-color: #bbf3c0;
+    
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    border-radius: 15px;
+}
+
+.card-image {
+    height: 262px;
+    
+}
+
+.card-name {
+    text-align: center;
+    color: #8b84ad;
+}
+
+
+.scene {
+    /* width: 200px; */
+    height: 262px;
+    perspective: 600px;
+    
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+}
+
+.card_face {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    object-fit: contain;
+
+}
+.card_back {
+    transform: rotateY( 180deg );
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+/* Fade Out */
+.fade-out {
+    animation: fadeOut ease 2s;
+    -webkit-animation: fadeOut ease 2s;
+    -moz-animation: fadeOut ease 2s;
+    -o-animation: fadeOut ease 2s;
+    -ms-animation: fadeOut ease 2s;
+}
+@keyframes fadeOut {
+    0% {
+    opacity:1;
+    }
+    100% {
+    opacity:0;
+    }
+}
+
+@-moz-keyframes fadeOut {
+    0% {
+    opacity:1;
+    }
+    100% {
+    opacity:0;
+    }
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+    opacity:1;
+    }
+    100% {
+    opacity:0;
+    }
+}
+
+@-o-keyframes fadeOut {
+    0% {
+    opacity:1;
+    }
+    100% {
+    opacity:0;
+    }
+}
+
+@-ms-keyframes fadeOut {
+    0% {
+    opacity:1;
+    }
+    100% {
+    opacity:0;
+    }
+}
+
+.counter-text {
+    margin: 8px 0;
+    width: 100px;
+    height: auto;
+    text-align: center;
+    border: 1px solid #6c6e6d;
+    background-color: #abbfff;
+    color: #6c6e6d;
+    border-radius: 50px;
+} 
+
+@media screen and (max-width: 500px) {
+    .add-card {
+        font-size: larger;
+        justify-self: flex-end;
+    }
+
+    .card-list {
+        width: 100vw;
+        height: 55vh;
+        overflow: scroll;
+        background-color: #d1b794ad;
+        border-radius: 10px;
+    }
+
+    .card-card {
+        transform: scale(1.2);
+        margin: 40px;
+    }
+}
